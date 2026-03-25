@@ -1,0 +1,1608 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ElectroServ — Электромонтаж под ключ</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --bg: #0e0e0e;
+                --bg2: #141414;
+                --bg3: #1a1a1a;
+                --border: #2a2a2a;
+                --gold: #c8960a;
+                --gold2: #f5c800;
+                --goldDim: rgba(245, 200, 0, 0.1);
+                --goldLine: rgba(245, 200, 0, 0.25);
+                --text: #f0ede6;
+                --text2: #8a8070;
+                --text3: #4a4438;
+                --white: #ffffff;
+                --radius: 4px;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: "Montserrat", sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                overflow-x: hidden;
+            }
+
+            /* ── NAV ── */
+            nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                padding: 0 60px;
+                height: 64px;
+                background: rgba(14, 14, 14, 0.95);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid var(--border);
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-family: "Bebas Neue", sans-serif;
+                font-size: 24px;
+                letter-spacing: 2px;
+                color: var(--text);
+                text-decoration: none;
+            }
+            .logo svg {
+                color: var(--gold2);
+            }
+            .nav-links {
+                display: flex;
+                gap: 32px;
+                margin-left: 48px;
+            }
+            .nav-links a {
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--text2);
+                text-decoration: none;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                transition: color 0.2s;
+            }
+            .nav-links a:hover {
+                color: var(--text);
+            }
+            .nav-right {
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+            .btn-nav {
+                padding: 9px 24px;
+                background: var(--gold2);
+                color: #000;
+                font-size: 13px;
+                font-weight: 700;
+                border: none;
+                cursor: pointer;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                font-family: inherit;
+                transition: background 0.2s;
+            }
+            .btn-nav:hover {
+                background: #fff;
+            }
+            .lang {
+                font-size: 13px;
+                color: var(--text2);
+                cursor: pointer;
+                font-weight: 500;
+            }
+
+            /* ── HERO ── */
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                padding: 100px 60px 60px;
+                position: relative;
+                overflow: hidden;
+            }
+            .hero-bg {
+                position: absolute;
+                inset: 0;
+                background: url("https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1600&q=80") center/cover no-repeat;
+                opacity: 0.18;
+            }
+            .hero-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(90deg, rgba(14, 14, 14, 1) 45%, rgba(14, 14, 14, 0.3) 100%);
+            }
+            .hero-content {
+                position: relative;
+                z-index: 1;
+                max-width: 620px;
+            }
+            .hero-tag {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: var(--gold2);
+                margin-bottom: 24px;
+            }
+            .hero-tag::before {
+                content: "";
+                width: 32px;
+                height: 2px;
+                background: var(--gold2);
+            }
+            h1 {
+                font-family: "Bebas Neue", sans-serif;
+                font-size: clamp(52px, 6vw, 88px);
+                line-height: 0.95;
+                letter-spacing: 2px;
+                color: var(--white);
+                margin-bottom: 24px;
+            }
+            h1 span {
+                color: var(--gold2);
+            }
+            .hero-sub {
+                font-size: 15px;
+                color: var(--text2);
+                line-height: 1.7;
+                margin-bottom: 36px;
+                max-width: 460px;
+            }
+            .hero-btns {
+                display: flex;
+                gap: 14px;
+                margin-bottom: 56px;
+            }
+            .btn-primary {
+                padding: 14px 32px;
+                background: var(--gold2);
+                color: #000;
+                font-size: 13px;
+                font-weight: 700;
+                border: none;
+                cursor: pointer;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                font-family: inherit;
+                transition: all 0.2s;
+            }
+            .btn-primary:hover {
+                background: #fff;
+                transform: translateY(-2px);
+            }
+            .btn-outline {
+                padding: 14px 32px;
+                background: transparent;
+                color: var(--text);
+                font-size: 13px;
+                font-weight: 600;
+                border: 1px solid var(--border);
+                cursor: pointer;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                font-family: inherit;
+                transition: all 0.2s;
+            }
+            .btn-outline:hover {
+                border-color: var(--gold2);
+                color: var(--gold2);
+            }
+            .hero-badges {
+                display: flex;
+                gap: 0;
+                border: 1px solid var(--border);
+                width: fit-content;
+            }
+            .hero-badge {
+                padding: 14px 24px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                border-right: 1px solid var(--border);
+            }
+            .hero-badge:last-child {
+                border-right: none;
+            }
+            .hb-icon {
+                font-size: 22px;
+            }
+            .hb-text {
+                font-size: 12px;
+                font-weight: 600;
+                color: var(--text2);
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+            }
+            .hb-text span {
+                display: block;
+                color: var(--text);
+                font-size: 13px;
+            }
+
+            /* ── SECTION BASE ── */
+            section {
+                padding: 100px 60px;
+            }
+            .s-tag {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: var(--gold2);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 16px;
+            }
+            .s-tag::after {
+                content: "";
+                flex: 0 0 40px;
+                height: 1px;
+                background: var(--goldLine);
+            }
+            h2 {
+                font-family: "Bebas Neue", sans-serif;
+                font-size: clamp(36px, 4vw, 56px);
+                letter-spacing: 2px;
+                color: var(--white);
+                line-height: 1;
+            }
+            h2 span {
+                color: var(--gold2);
+            }
+            .s-sub {
+                font-size: 14px;
+                color: var(--text2);
+                line-height: 1.7;
+                max-width: 520px;
+                margin-top: 14px;
+            }
+            .sep {
+                height: 1px;
+                background: linear-gradient(90deg, var(--goldLine), transparent);
+                margin: 0 60px;
+            }
+
+            /* ── ABOUT ── */
+            .about-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+                align-items: center;
+            }
+            .about-img {
+                position: relative;
+                aspect-ratio: 4/3;
+                overflow: hidden;
+            }
+            .about-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: grayscale(30%);
+            }
+            .about-img::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border: 1px solid var(--goldLine);
+                pointer-events: none;
+            }
+            .about-accent {
+                position: absolute;
+                bottom: -1px;
+                left: -1px;
+                width: 60px;
+                height: 4px;
+                background: var(--gold2);
+            }
+            .about-text p {
+                font-size: 14px;
+                color: var(--text2);
+                line-height: 1.8;
+                margin-top: 20px;
+                margin-bottom: 28px;
+            }
+            .about-stats {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1px;
+                background: var(--border);
+                margin-top: 32px;
+            }
+            .a-stat {
+                background: var(--bg2);
+                padding: 20px;
+            }
+            .a-stat-val {
+                font-family: "Bebas Neue", sans-serif;
+                font-size: 42px;
+                color: var(--gold2);
+                letter-spacing: 2px;
+                line-height: 1;
+            }
+            .a-stat-lbl {
+                font-size: 12px;
+                color: var(--text2);
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                margin-top: 4px;
+            }
+
+            /* ── VALUES ── */
+            .values-bg {
+                background: var(--bg2);
+            }
+            .values-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1px;
+                background: var(--border);
+                margin-top: 48px;
+            }
+            .value-card {
+                background: var(--bg2);
+                padding: 36px 28px;
+                position: relative;
+                overflow: hidden;
+                transition: background 0.2s;
+            }
+            .value-card:hover {
+                background: var(--bg3);
+            }
+            .value-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: var(--gold2);
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.3s;
+            }
+            .value-card:hover::before {
+                transform: scaleX(1);
+            }
+            .v-icon {
+                width: 52px;
+                height: 52px;
+                border: 1px solid var(--border);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                margin-bottom: 20px;
+                transition: border-color 0.2s;
+            }
+            .value-card:hover .v-icon {
+                border-color: var(--goldLine);
+            }
+            .v-title {
+                font-size: 15px;
+                font-weight: 700;
+                color: var(--white);
+                margin-bottom: 10px;
+                letter-spacing: 0.03em;
+            }
+            .v-text {
+                font-size: 13px;
+                color: var(--text2);
+                line-height: 1.7;
+            }
+
+            /* ── SERVICES ── */
+            .services-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin-bottom: 48px;
+            }
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+            .service-card {
+                background: var(--bg2);
+                border: 1px solid var(--border);
+                padding: 32px 24px;
+                cursor: pointer;
+                transition: all 0.2s;
+                position: relative;
+            }
+            .service-card:hover {
+                border-color: var(--goldLine);
+                transform: translateY(-4px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+            .sc-num {
+                font-family: "Bebas Neue", sans-serif;
+                font-size: 48px;
+                color: var(--border);
+                line-height: 1;
+                margin-bottom: 20px;
+                transition: color 0.2s;
+            }
+            .service-card:hover .sc-num {
+                color: var(--goldDim);
+            }
+            .sc-icon {
+                font-size: 28px;
+                margin-bottom: 16px;
+            }
+            .sc-title {
+                font-size: 15px;
+                font-weight: 700;
+                color: var(--white);
+                margin-bottom: 10px;
+            }
+            .sc-text {
+                font-size: 13px;
+                color: var(--text2);
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+            .sc-link {
+                font-size: 12px;
+                font-weight: 700;
+                color: var(--gold2);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            /* ── WHY CHOOSE US ── */
+            .why-bg {
+                background: var(--bg2);
+            }
+            .why-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+                align-items: center;
+                margin-top: 48px;
+            }
+            .why-img {
+                position: relative;
+            }
+            .why-img img {
+                width: 100%;
+                aspect-ratio: 4/3;
+                object-fit: cover;
+                filter: grayscale(20%);
+            }
+            .why-badge {
+                position: absolute;
+                bottom: 24px;
+                left: -24px;
+                background: var(--gold2);
+                padding: 16px 24px;
+                width: 180px;
+            }
+            .wb-num {
+                font-family: "Bebas Neue", sans-serif;
+                font-size: 42px;
+                color: #000;
+                line-height: 1;
+            }
+            .wb-text {
+                font-size: 11px;
+                font-weight: 700;
+                color: #000;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+            }
+            .why-items {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+            .why-item {
+                display: flex;
+                gap: 20px;
+                padding: 24px 0;
+                border-bottom: 1px solid var(--border);
+                transition: padding 0.2s;
+            }
+            .why-item:first-child {
+                padding-top: 0;
+            }
+            .why-item:hover {
+                padding-left: 8px;
+            }
+            .wi-icon {
+                width: 48px;
+                height: 48px;
+                flex-shrink: 0;
+                border: 1px solid var(--goldLine);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+            }
+            .wi-title {
+                font-size: 14px;
+                font-weight: 700;
+                color: var(--white);
+                margin-bottom: 6px;
+            }
+            .wi-text {
+                font-size: 13px;
+                color: var(--text2);
+                line-height: 1.6;
+            }
+
+            /* ── PROJECTS ── */
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2px;
+                margin-top: 48px;
+            }
+            .project-card {
+                position: relative;
+                aspect-ratio: 4/3;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .project-card img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.4s;
+                filter: grayscale(40%);
+            }
+            .project-card:hover img {
+                transform: scale(1.06);
+                filter: grayscale(0%);
+            }
+            .project-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, transparent 50%);
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .project-card:hover .project-overlay {
+                opacity: 1;
+            }
+            .project-info {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 24px;
+                transform: translateY(8px);
+                transition: transform 0.3s;
+            }
+            .project-card:hover .project-info {
+                transform: translateY(0);
+            }
+            .pi-tag {
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--gold2);
+                margin-bottom: 6px;
+            }
+            .pi-title {
+                font-size: 15px;
+                font-weight: 700;
+                color: #fff;
+            }
+            .pi-meta {
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.6);
+                margin-top: 4px;
+            }
+
+            /* ── TESTIMONIALS ── */
+            .testi-bg {
+                background: var(--bg2);
+            }
+            .testi-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+                margin-top: 48px;
+            }
+            .testi-card {
+                background: var(--bg);
+                border: 1px solid var(--border);
+                padding: 28px;
+                position: relative;
+                transition: border-color 0.2s;
+            }
+            .testi-card:hover {
+                border-color: var(--goldLine);
+            }
+            .testi-card::before {
+                content: '"';
+                position: absolute;
+                top: 20px;
+                right: 24px;
+                font-family: "Bebas Neue", sans-serif;
+                font-size: 80px;
+                color: var(--border);
+                line-height: 1;
+            }
+            .stars {
+                color: var(--gold2);
+                font-size: 14px;
+                margin-bottom: 14px;
+                letter-spacing: 2px;
+            }
+            .testi-text {
+                font-size: 14px;
+                color: var(--text2);
+                line-height: 1.7;
+                margin-bottom: 20px;
+            }
+            .testi-author {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .ta-avatar {
+                width: 40px;
+                height: 40px;
+                background: var(--bg3);
+                border: 1px solid var(--goldLine);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 15px;
+                font-weight: 700;
+                color: var(--gold2);
+                font-family: "Bebas Neue", sans-serif;
+                letter-spacing: 1px;
+            }
+            .ta-name {
+                font-size: 14px;
+                font-weight: 700;
+                color: var(--white);
+            }
+            .ta-role {
+                font-size: 12px;
+                color: var(--text3);
+                margin-top: 2px;
+            }
+
+            /* ── SERVICE AREA ── */
+            .area-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+                align-items: start;
+                margin-top: 48px;
+            }
+            .area-list {
+                list-style: none;
+            }
+            .area-list li {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                padding: 16px 0;
+                border-bottom: 1px solid var(--border);
+                font-size: 14px;
+                color: var(--text2);
+                font-weight: 500;
+                transition: color 0.2s;
+                cursor: default;
+            }
+            .area-list li:hover {
+                color: var(--text);
+            }
+            .area-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--gold2);
+                flex-shrink: 0;
+            }
+            .area-map {
+                background: var(--bg3);
+                border: 1px solid var(--border);
+                aspect-ratio: 4/3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .map-placeholder {
+                font-family: "Bebas Neue", sans-serif;
+                font-size: 18px;
+                letter-spacing: 3px;
+                color: var(--text3);
+            }
+            /* SVG map dots */
+            .map-dot {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: var(--gold2);
+                box-shadow: 0 0 0 4px rgba(245, 200, 0, 0.2);
+            }
+            .map-dot::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: rgba(245, 200, 0, 0.1);
+                animation: pulse 2s ease infinite;
+            }
+            @keyframes pulse {
+                0%,
+                100% {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 0.6;
+                }
+                50% {
+                    transform: translate(-50%, -50%) scale(1.8);
+                    opacity: 0;
+                }
+            }
+
+            /* ── CONTACT ── */
+            .contact-bg {
+                background: var(--bg2);
+            }
+            .contact-grid {
+                display: grid;
+                grid-template-columns: 1.2fr 1fr;
+                gap: 60px;
+                margin-top: 48px;
+            }
+            .form-group {
+                margin-bottom: 16px;
+            }
+            label {
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--text2);
+                display: block;
+                margin-bottom: 8px;
+            }
+            input,
+            select,
+            textarea {
+                width: 100%;
+                background: var(--bg);
+                border: 1px solid var(--border);
+                padding: 13px 16px;
+                color: var(--text);
+                font-size: 14px;
+                font-family: inherit;
+                outline: none;
+                transition: border-color 0.2s;
+                appearance: none;
+            }
+            input:focus,
+            select:focus,
+            textarea:focus {
+                border-color: var(--goldLine);
+            }
+            input::placeholder,
+            textarea::placeholder {
+                color: var(--text3);
+            }
+            textarea {
+                min-height: 100px;
+                resize: vertical;
+            }
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .contact-info {
+            }
+            .ci-item {
+                display: flex;
+                gap: 16px;
+                padding: 24px 0;
+                border-bottom: 1px solid var(--border);
+            }
+            .ci-icon {
+                width: 44px;
+                height: 44px;
+                border: 1px solid var(--goldLine);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                flex-shrink: 0;
+            }
+            .ci-label {
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--text3);
+                margin-bottom: 4px;
+                font-weight: 600;
+            }
+            .ci-val {
+                font-size: 15px;
+                font-weight: 600;
+                color: var(--text);
+            }
+
+            /* ── FAQ ── */
+            .faq-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+                margin-top: 48px;
+            }
+            .faq-list {
+            }
+            .faq-item {
+                border-bottom: 1px solid var(--border);
+            }
+            .faq-q {
+                width: 100%;
+                background: none;
+                border: none;
+                padding: 20px 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--text);
+                cursor: pointer;
+                font-family: inherit;
+                text-align: left;
+                gap: 16px;
+            }
+            .faq-q:hover {
+                color: var(--gold2);
+            }
+            .faq-icon {
+                width: 24px;
+                height: 24px;
+                border: 1px solid var(--border);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                color: var(--gold2);
+                flex-shrink: 0;
+                transition: transform 0.2s;
+            }
+            .faq-a {
+                font-size: 13px;
+                color: var(--text2);
+                line-height: 1.7;
+                max-height: 0;
+                overflow: hidden;
+                transition:
+                    max-height 0.3s,
+                    padding 0.3s;
+            }
+            .faq-item.open .faq-a {
+                max-height: 200px;
+                padding-bottom: 20px;
+            }
+            .faq-item.open .faq-icon {
+                transform: rotate(45deg);
+            }
+            .faq-item.open .faq-q {
+                color: var(--gold2);
+            }
+            .faq-visual {
+                background: var(--bg2);
+                border: 1px solid var(--border);
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+            .faq-stat {
+            }
+            .fs-num {
+                font-family: "Bebas Neue", sans-serif;
+                font-size: 64px;
+                color: var(--gold2);
+                letter-spacing: 2px;
+                line-height: 1;
+            }
+            .fs-text {
+                font-size: 13px;
+                color: var(--text2);
+                margin-top: 4px;
+                line-height: 1.6;
+            }
+
+            /* ── FOOTER ── */
+            footer {
+                background: #080808;
+                border-top: 1px solid var(--border);
+                padding: 60px;
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr 1fr;
+                gap: 40px;
+            }
+            .footer-brand p {
+                font-size: 13px;
+                color: var(--text2);
+                line-height: 1.7;
+                margin-top: 14px;
+                max-width: 260px;
+            }
+            .footer-col h4 {
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--text);
+                margin-bottom: 20px;
+            }
+            .footer-col a {
+                display: block;
+                font-size: 13px;
+                color: var(--text2);
+                text-decoration: none;
+                margin-bottom: 10px;
+                transition: color 0.2s;
+            }
+            .footer-col a:hover {
+                color: var(--gold2);
+            }
+            .footer-bottom {
+                padding: 20px 60px;
+                border-top: 1px solid var(--border);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: #080808;
+            }
+            .footer-bottom p {
+                font-size: 12px;
+                color: var(--text3);
+            }
+            .socials {
+                display: flex;
+                gap: 12px;
+            }
+            .social {
+                width: 34px;
+                height: 34px;
+                border: 1px solid var(--border);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                cursor: pointer;
+                transition: border-color 0.2s;
+                text-decoration: none;
+            }
+            .social:hover {
+                border-color: var(--goldLine);
+            }
+
+            /* ── SCROLL ANIMATION ── */
+            .reveal {
+                opacity: 0;
+                transform: translateY(24px);
+                transition:
+                    opacity 0.6s,
+                    transform 0.6s;
+            }
+            .reveal.visible {
+                opacity: 1;
+                transform: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- NAV -->
+        <nav>
+            <a href="#" class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
+                Elektro-Group-Nabieyv
+            </a>
+            <div class="nav-links">
+                <a href="#about">О нас</a>
+                <a href="#services">Услуги</a>
+                <a href="#projects">Объекты</a>
+                <a href="#contact">Контакты</a>
+            </div>
+            <div class="nav-right">
+                <span class="lang">RU</span>
+                <button class="btn-nav">Войти</button>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-tag">Электромонтажные услуги</div>
+                <h1>Электро-<br />монтаж<br /><span>под ключ</span></h1>
+                <p class="hero-sub">Оставьте заявку онлайн. Проверенный мастер приедет в удобное для вас время — для квартиры, офиса или стройки.</p>
+                <div class="hero-btns">
+                    <button class="btn-primary">Оставить заявку</button>
+                    <button class="btn-outline">Наши услуги</button>
+                </div>
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <span class="hb-icon">⚡</span>
+                        <div class="hb-text">Выезд<span>от 60 мин.</span></div>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="hb-icon">🛡</span>
+                        <div class="hb-text">Гарантия<span>от 1 года</span></div>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="hb-icon">📋</span>
+                        <div class="hb-text">Консультация<span>бесплатно</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="about-grid reveal">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Электромонтаж" />
+                    <div class="about-accent"></div>
+                </div>
+                <div class="about-text">
+                    <div class="s-tag">О компании</div>
+                    <h2>Мы — команда <span>профессионалов</span></h2>
+                    <p>Более 10 лет выполняем электромонтажные работы для частных клиентов, бизнеса и строительных компаний по всему Узбекистану.</p>
+                    <p style="margin-top: -8px">
+                        Каждый мастер проходит проверку, имеет допуск к работам и несёт ответственность за результат. Мы не исчезаем после завершения
+                        — даём гарантию на все виды услуг.
+                    </p>
+                    <button class="btn-outline" style="margin-top: 8px">Узнать больше</button>
+                    <div class="about-stats">
+                        <div class="a-stat">
+                            <div class="a-stat-val">10+</div>
+                            <div class="a-stat-lbl">Лет на рынке</div>
+                        </div>
+                        <div class="a-stat">
+                            <div class="a-stat-val">50+</div>
+                            <div class="a-stat-lbl">Мастеров</div>
+                        </div>
+                        <div class="a-stat">
+                            <div class="a-stat-val">5000+</div>
+                            <div class="a-stat-lbl">Объектов сдано</div>
+                        </div>
+                        <div class="a-stat">
+                            <div class="a-stat-val">28</div>
+                            <div class="a-stat-lbl">Городов</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sep"></div>
+
+        <!-- VALUES -->
+        <section class="values-bg">
+            <div class="reveal" style="text-align: center; max-width: 560px; margin: 0 auto 0">
+                <div class="s-tag" style="justify-content: center">Наши принципы</div>
+                <h2>Наши <span>ценности</span></h2>
+            </div>
+            <div class="values-grid reveal">
+                <div class="value-card">
+                    <div class="v-icon">🛡</div>
+                    <div class="v-title">Безопасность</div>
+                    <div class="v-text">Все работы выполняются по нормам ПУЭ. Только сертифицированные специалисты без самодеятельности.</div>
+                </div>
+                <div class="value-card">
+                    <div class="v-icon">⚡</div>
+                    <div class="v-title">Скорость</div>
+                    <div class="v-text">Аварийный выезд за 60 минут. Стандартные заявки — в день обращения в рабочее время.</div>
+                </div>
+                <div class="value-card">
+                    <div class="v-icon">📋</div>
+                    <div class="v-title">Прозрачность</div>
+                    <div class="v-text">Фиксированная стоимость до начала работ. Никаких скрытых доплат после выполнения.</div>
+                </div>
+                <div class="value-card">
+                    <div class="v-icon">🏆</div>
+                    <div class="v-title">Гарантия</div>
+                    <div class="v-text">Даём письменную гарантию на все выполненные работы от 1 года. Бесплатно устраняем дефекты.</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sep"></div>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <div class="services-header reveal">
+                <div>
+                    <div class="s-tag">Что мы делаем</div>
+                    <h2>Наши <span>услуги</span></h2>
+                </div>
+                <button class="btn-outline">Все услуги</button>
+            </div>
+            <div class="services-grid reveal">
+                <div class="service-card">
+                    <div class="sc-num">01</div>
+                    <div class="sc-icon">🏠</div>
+                    <div class="sc-title">Жилые помещения</div>
+                    <div class="sc-text">Квартиры, частные дома, дачи. Проводка, розетки, освещение, электрощиты под ключ.</div>
+                    <div class="sc-link">Подробнее →</div>
+                </div>
+                <div class="service-card">
+                    <div class="sc-num">02</div>
+                    <div class="sc-icon">🏢</div>
+                    <div class="sc-title">Бизнес и офисы</div>
+                    <div class="sc-text">Офисы, магазины, рестораны, склады. Монтаж и обслуживание по договору.</div>
+                    <div class="sc-link">Подробнее →</div>
+                </div>
+                <div class="service-card">
+                    <div class="sc-num">03</div>
+                    <div class="sc-icon">🚨</div>
+                    <div class="sc-title">Аварийный выезд</div>
+                    <div class="sc-text">Работаем 24/7. Выезд по Ташкенту в течение 60 минут. Быстрая диагностика и устранение.</div>
+                    <div class="sc-link">Вызвать мастера →</div>
+                </div>
+                <div class="service-card">
+                    <div class="sc-num">04</div>
+                    <div class="sc-icon">🏗</div>
+                    <div class="sc-title">Строительство</div>
+                    <div class="sc-text">Новые объекты, ЖК, промышленные здания. Комплексное электроснабжение от проекта до сдачи.</div>
+                    <div class="sc-link">Подробнее →</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sep"></div>
+
+        <!-- WHY CHOOSE US -->
+        <section class="why-bg" id="why">
+            <div class="why-grid reveal">
+                <div class="why-img">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Мастер за работой" />
+                    <div class="why-badge">
+                        <div class="wb-num">100%</div>
+                        <div class="wb-text">Гарантия качества</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="s-tag">Наши преимущества</div>
+                    <h2>Почему <span>выбирают нас</span></h2>
+                    <div class="why-items" style="margin-top: 32px">
+                        <div class="why-item">
+                            <div class="wi-icon">⏱</div>
+                            <div>
+                                <div class="wi-title">Выезд за 60 минут</div>
+                                <div class="wi-text">Аварийные заявки обрабатываем немедленно. Мастер будет у вас в течение часа по Ташкенту.</div>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <div class="wi-icon">📜</div>
+                            <div>
+                                <div class="wi-title">Лицензированные мастера</div>
+                                <div class="wi-text">Все специалисты с государственным допуском, регулярно проходят аттестацию и обучение.</div>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <div class="wi-icon">💰</div>
+                            <div>
+                                <div class="wi-title">Фиксированная цена</div>
+                                <div class="wi-text">
+                                    Называем стоимость до начала работ. Никаких доплат в процессе и после — только то, что согласовали.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <div class="wi-icon">🛡</div>
+                            <div>
+                                <div class="wi-title">Гарантия от 1 года</div>
+                                <div class="wi-text">
+                                    Выдаём письменную гарантию. Если что-то выйдет из строя по нашей вине — устраняем бесплатно.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sep"></div>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px">
+                <div>
+                    <div class="s-tag">Портфолио</div>
+                    <h2>Наши <span>объекты</span></h2>
+                </div>
+                <button class="btn-outline">Все проекты</button>
+            </div>
+            <div class="projects-grid reveal">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="" />
+                    <div class="project-overlay"></div>
+                    <div class="project-info">
+                        <div class="pi-tag">Жилой объект</div>
+                        <div class="pi-title">Замена проводки, 3-комн. квартира</div>
+                        <div class="pi-meta">Ташкент, 2024</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80" alt="" />
+                    <div class="project-overlay"></div>
+                    <div class="project-info">
+                        <div class="pi-tag">Коммерческий</div>
+                        <div class="pi-title">Электромонтаж офиса 400 м²</div>
+                        <div class="pi-meta">Ташкент, 2024</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80" alt="" />
+                    <div class="project-overlay"></div>
+                    <div class="project-info">
+                        <div class="pi-tag">Промышленный</div>
+                        <div class="pi-title">Промышленная проводка, завод</div>
+                        <div class="pi-meta">Навои, 2024</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="" />
+                    <div class="project-overlay"></div>
+                    <div class="project-info">
+                        <div class="pi-tag">Строительство</div>
+                        <div class="pi-title">Щитовое оборудование, ЖК</div>
+                        <div class="pi-meta">Ташкент, 2023</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="" />
+                    <div class="project-overlay"></div>
+                    <div class="project-info">
+                        <div class="pi-tag">Освещение</div>
+                        <div class="pi-title">Умное освещение, ресторан</div>
+                        <div class="pi-meta">Самарканд, 2023</div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=600&q=80" alt="" />
+                    <div class="project-overlay"></div>
+                    <div class="project-info">
+                        <div class="pi-tag">Аварийный</div>
+                        <div class="pi-title">Ремонт электросети, ТЦ</div>
+                        <div class="pi-meta">Фергана, 2023</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sep"></div>
+
+        <!-- TESTIMONIALS -->
+        <section class="testi-bg">
+            <div class="reveal" style="text-align: center; max-width: 480px; margin: 0 auto 0">
+                <div class="s-tag" style="justify-content: center">Отзывы</div>
+                <h2>Что говорят <span>клиенты</span></h2>
+            </div>
+            <div class="testi-grid reveal">
+                <div class="testi-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="testi-text">
+                        «Вызвал мастера вечером — приехал через 40 минут. Быстро нашли проблему, починили. Цена как договорились, без сюрпризов.»
+                    </div>
+                    <div class="testi-author">
+                        <div class="ta-avatar">АК</div>
+                        <div>
+                            <div class="ta-name">Азиз Каримов</div>
+                            <div class="ta-role">Частный клиент, Ташкент</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="testi-text">
+                        «Делали электрику во всём офисе. Работали аккуратно, не мешали сотрудникам. Сдали в срок, всё работает отлично.»
+                    </div>
+                    <div class="testi-author">
+                        <div class="ta-avatar">МР</div>
+                        <div>
+                            <div class="ta-name">Малика Рашидова</div>
+                            <div class="ta-role">Директор, ООО СтройКом</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="testi-text">
+                        «Уже третий раз обращаюсь. Всегда чисто, всегда вовремя, всегда честная цена. Рекомендую всем знакомым.»
+                    </div>
+                    <div class="testi-author">
+                        <div class="ta-avatar">БТ</div>
+                        <div>
+                            <div class="ta-name">Бахром Тошматов</div>
+                            <div class="ta-role">Частный клиент, Самарканд</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sep"></div>
+
+        <!-- SERVICE AREA -->
+        <section>
+            <div class="reveal">
+                <div class="s-tag">География</div>
+                <h2>Города <span>обслуживания</span></h2>
+                <p class="s-sub">Работаем по всему Узбекистану. Основной регион — Ташкент и Ташкентская область.</p>
+            </div>
+            <div class="area-grid reveal">
+                <ul class="area-list">
+                    <li><span class="area-dot"></span> Ташкент и Ташкентская область</li>
+                    <li><span class="area-dot"></span> Самарканд</li>
+                    <li><span class="area-dot"></span> Фергана</li>
+                    <li><span class="area-dot"></span> Андижан</li>
+                    <li><span class="area-dot"></span> Наманган</li>
+                    <li><span class="area-dot"></span> Бухара</li>
+                    <li><span class="area-dot" style="background: var(--text3)"></span> Другие регионы — по запросу</li>
+                </ul>
+                <div class="area-map">
+                    <div class="map-placeholder">КАРТА УЗБЕКИСТАНА</div>
+                    <div class="map-dot" style="top: 42%; left: 52%"></div>
+                    <div class="map-dot" style="top: 58%; left: 38%; width: 7px; height: 7px"></div>
+                    <div class="map-dot" style="top: 48%; left: 72%; width: 7px; height: 7px"></div>
+                    <div class="map-dot" style="top: 44%; left: 78%; width: 6px; height: 6px"></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sep"></div>
+
+        <!-- CONTACT -->
+        <section class="contact-bg" id="contact">
+            <div class="reveal">
+                <div class="s-tag">Связь</div>
+                <h2>Оставить <span>заявку</span></h2>
+                <p class="s-sub">Перезвоним в течение 15 минут в рабочее время. Аварийные заявки — круглосуточно.</p>
+            </div>
+            <div class="contact-grid reveal">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ваше имя</label>
+                            <input type="text" placeholder="Азиз Каримов" />
+                        </div>
+                        <div class="form-group">
+                            <label>Номер телефона</label>
+                            <input type="tel" placeholder="+998 90 000 00 00" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Тип услуги</label>
+                        <select>
+                            <option value="">Выберите категорию</option>
+                            <option>Жилые помещения</option>
+                            <option>Бизнес и офисы</option>
+                            <option>Строительство</option>
+                            <option>Аварийный выезд</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Описание (необязательно)</label>
+                        <textarea placeholder="Опишите задачу — адрес, что нужно сделать..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; padding: 16px">Отправить заявку</button>
+                </form>
+                <div class="contact-info">
+                    <div class="ci-item">
+                        <div class="ci-icon">📞</div>
+                        <div>
+                            <div class="ci-label">Телефон</div>
+                            <div class="ci-val">+998 XX XXX XX XX</div>
+                        </div>
+                    </div>
+                    <div class="ci-item">
+                        <div class="ci-icon">💬</div>
+                        <div>
+                            <div class="ci-label">Telegram</div>
+                            <div class="ci-val">@electroserv</div>
+                        </div>
+                    </div>
+                    <div class="ci-item">
+                        <div class="ci-icon">📧</div>
+                        <div>
+                            <div class="ci-label">Email</div>
+                            <div class="ci-val">info@electroserv.uz</div>
+                        </div>
+                    </div>
+                    <div class="ci-item">
+                        <div class="ci-icon">📍</div>
+                        <div>
+                            <div class="ci-label">Адрес</div>
+                            <div class="ci-val">Ташкент, Узбекистан</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sep"></div>
+
+        <!-- FAQ -->
+        <section>
+            <div class="reveal">
+                <div class="s-tag">Вопросы</div>
+                <h2>Часто <span>спрашивают</span></h2>
+            </div>
+            <div class="faq-grid reveal">
+                <div class="faq-list">
+                    <div class="faq-item open">
+                        <button class="faq-q">Какие услуги вы оказываете? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            Мы выполняем полный спектр электромонтажных работ: для квартир, домов, офисов, магазинов и строящихся объектов. Аварийный
+                            выезд — 24/7.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">Как быстро приедет мастер? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            По аварийным заявкам — в течение 60 минут по Ташкенту. Стандартные заявки обрабатываем в день обращения.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">Работаете ли вы в выходные? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Аварийный выезд работает 24/7 без выходных. Плановые работы — по согласованию, включая выходные дни.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">Даёте ли гарантию на работы? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            Да, выдаём письменную гарантию от 1 года на все выполненные работы. Если возникнет проблема по нашей вине — устраняем
+                            бесплатно.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">Как рассчитывается стоимость? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">
+                            Называем цену до начала работ после осмотра. Никаких изменений в процессе — только то, что согласовали заранее.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">Как оставить заявку онлайн? <span class="faq-icon">+</span></button>
+                        <div class="faq-a">Заполните форму выше или напишите нам в Telegram. Перезвоним в течение 15 минут и уточним детали.</div>
+                    </div>
+                </div>
+                <div class="faq-visual">
+                    <div class="faq-stat">
+                        <div class="fs-num">5000+</div>
+                        <div class="fs-text">выполненных заявок за 10 лет работы</div>
+                    </div>
+                    <div style="height: 1px; background: var(--border)"></div>
+                    <div class="faq-stat">
+                        <div class="fs-num">98%</div>
+                        <div class="fs-text">клиентов оценивают работу на 5 звёзд</div>
+                    </div>
+                    <div style="height: 1px; background: var(--border)"></div>
+                    <div class="faq-stat">
+                        <div class="fs-num">24/7</div>
+                        <div class="fs-text">аварийный выезд без выходных и праздников</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-brand">
+                <div class="logo" style="margin-bottom: 14px">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
+                    ElectroServ
+                </div>
+                <p>Профессиональные электромонтажные услуги по всему Узбекистану. Быстро, надёжно, с гарантией.</p>
+                <div class="socials" style="margin-top: 20px">
+                    <a class="social" href="#">✈</a>
+                    <a class="social" href="#">📷</a>
+                    <a class="social" href="#">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Компания</h4>
+                <a href="#">О нас</a>
+                <a href="#">Команда</a>
+                <a href="#">Отзывы</a>
+                <a href="#">Контакты</a>
+            </div>
+            <div class="footer-col">
+                <h4>Услуги</h4>
+                <a href="#">Жилые помещения</a>
+                <a href="#">Бизнес и офисы</a>
+                <a href="#">Строительство</a>
+                <a href="#">Аварийный выезд</a>
+            </div>
+            <div class="footer-col">
+                <h4>Города</h4>
+                <a href="#">Ташкент</a>
+                <a href="#">Самарканд</a>
+                <a href="#">Фергана</a>
+                <a href="#">Андижан</a>
+                <a href="#">Другие города</a>
+            </div>
+        </footer>
+        <div class="footer-bottom">
+            <p>© 2025 ElectroServ. Все права защищены.</p>
+            <p>Политика конфиденциальности · Условия использования</p>
+        </div>
+
+        <script>
+            // FAQ accordion
+            document.querySelectorAll(".faq-q").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const item = btn.parentElement;
+                    const isOpen = item.classList.contains("open");
+                    document.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("open"));
+                    if (!isOpen) item.classList.add("open");
+                });
+            });
+
+            // Scroll reveal
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e, i) => {
+                        if (e.isIntersecting) {
+                            setTimeout(() => e.target.classList.add("visible"), i * 80);
+                        }
+                    });
+                },
+                { threshold: 0.1 },
+            );
+            document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+        </script>
+    </body>
+</html>
