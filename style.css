@@ -1121,6 +1121,9 @@ footer {
         font-size: 50px;
         margin-bottom: 14px;
     }
+    .logo {
+        font-size: 18px;
+    }
     .hero-sub {
         font-size: 14px;
         margin-bottom: 22px;
@@ -1356,6 +1359,10 @@ footer {
     }
     .nav-links a {
         font-size: 12px;
+    }
+
+    .logo {
+        font-size: 18px;
     }
 
     /* Layout */
