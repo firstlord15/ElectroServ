@@ -3,1044 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ElectroServ — Электромонтаж под ключ</title>
+        <title>Elektro-Group-Nabieyv — Электромонтаж под ключ</title>
         <link
             href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
-        <style>
-            *,
-            *::before,
-            *::after {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-
-            :root {
-                --bg: #0e0e0e;
-                --bg2: #141414;
-                --bg3: #1a1a1a;
-                --border: #2a2a2a;
-                --gold: #c8960a;
-                --gold2: #f5c800;
-                --goldDim: rgba(245, 200, 0, 0.1);
-                --goldLine: rgba(245, 200, 0, 0.25);
-                --text: #f0ede6;
-                --text2: #8a8070;
-                --text3: #4a4438;
-                --white: #ffffff;
-                --radius: 4px;
-            }
-
-            html {
-                scroll-behavior: smooth;
-            }
-
-            body {
-                font-family: "Montserrat", sans-serif;
-                background: var(--bg);
-                color: var(--text);
-                overflow-x: hidden;
-            }
-
-            /* ── NAV ── */
-            nav {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 100;
-                display: flex;
-                align-items: center;
-                padding: 0 60px;
-                height: 64px;
-                background: rgba(14, 14, 14, 0.95);
-                backdrop-filter: blur(12px);
-                border-bottom: 1px solid var(--border);
-            }
-            .logo {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                font-family: "Bebas Neue", sans-serif;
-                font-size: 24px;
-                letter-spacing: 2px;
-                color: var(--text);
-                text-decoration: none;
-            }
-            .logo svg {
-                color: var(--gold2);
-            }
-            .nav-links {
-                display: flex;
-                gap: 32px;
-                margin-left: 48px;
-            }
-            .nav-links a {
-                font-size: 13px;
-                font-weight: 500;
-                color: var(--text2);
-                text-decoration: none;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-                transition: color 0.2s;
-            }
-            .nav-links a:hover {
-                color: var(--text);
-            }
-            .nav-right {
-                margin-left: auto;
-                display: flex;
-                align-items: center;
-                gap: 16px;
-            }
-            .btn-nav {
-                padding: 9px 24px;
-                background: var(--gold2);
-                color: #000;
-                font-size: 13px;
-                font-weight: 700;
-                border: none;
-                cursor: pointer;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                font-family: inherit;
-                transition: background 0.2s;
-            }
-            .btn-nav:hover {
-                background: #fff;
-            }
-            .lang {
-                font-size: 13px;
-                color: var(--text2);
-                cursor: pointer;
-                font-weight: 500;
-            }
-
-            /* ── HERO ── */
-            .hero {
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                padding: 100px 60px 60px;
-                position: relative;
-                overflow: hidden;
-            }
-            .hero-bg {
-                position: absolute;
-                inset: 0;
-                background: url("https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1600&q=80") center/cover no-repeat;
-                opacity: 0.18;
-            }
-            .hero-overlay {
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(90deg, rgba(14, 14, 14, 1) 45%, rgba(14, 14, 14, 0.3) 100%);
-            }
-            .hero-content {
-                position: relative;
-                z-index: 1;
-                max-width: 620px;
-            }
-            .hero-tag {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                font-size: 11px;
-                font-weight: 700;
-                letter-spacing: 0.15em;
-                text-transform: uppercase;
-                color: var(--gold2);
-                margin-bottom: 24px;
-            }
-            .hero-tag::before {
-                content: "";
-                width: 32px;
-                height: 2px;
-                background: var(--gold2);
-            }
-            h1 {
-                font-family: "Bebas Neue", sans-serif;
-                font-size: clamp(52px, 6vw, 88px);
-                line-height: 0.95;
-                letter-spacing: 2px;
-                color: var(--white);
-                margin-bottom: 24px;
-            }
-            h1 span {
-                color: var(--gold2);
-            }
-            .hero-sub {
-                font-size: 15px;
-                color: var(--text2);
-                line-height: 1.7;
-                margin-bottom: 36px;
-                max-width: 460px;
-            }
-            .hero-btns {
-                display: flex;
-                gap: 14px;
-                margin-bottom: 56px;
-            }
-            .btn-primary {
-                padding: 14px 32px;
-                background: var(--gold2);
-                color: #000;
-                font-size: 13px;
-                font-weight: 700;
-                border: none;
-                cursor: pointer;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                font-family: inherit;
-                transition: all 0.2s;
-            }
-            .btn-primary:hover {
-                background: #fff;
-                transform: translateY(-2px);
-            }
-            .btn-outline {
-                padding: 14px 32px;
-                background: transparent;
-                color: var(--text);
-                font-size: 13px;
-                font-weight: 600;
-                border: 1px solid var(--border);
-                cursor: pointer;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                font-family: inherit;
-                transition: all 0.2s;
-            }
-            .btn-outline:hover {
-                border-color: var(--gold2);
-                color: var(--gold2);
-            }
-            .hero-badges {
-                display: flex;
-                gap: 0;
-                border: 1px solid var(--border);
-                width: fit-content;
-            }
-            .hero-badge {
-                padding: 14px 24px;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                border-right: 1px solid var(--border);
-            }
-            .hero-badge:last-child {
-                border-right: none;
-            }
-            .hb-icon {
-                font-size: 22px;
-            }
-            .hb-text {
-                font-size: 12px;
-                font-weight: 600;
-                color: var(--text2);
-                text-transform: uppercase;
-                letter-spacing: 0.06em;
-            }
-            .hb-text span {
-                display: block;
-                color: var(--text);
-                font-size: 13px;
-            }
-
-            /* ── SECTION BASE ── */
-            section {
-                padding: 100px 60px;
-            }
-            .s-tag {
-                font-size: 11px;
-                font-weight: 700;
-                letter-spacing: 0.2em;
-                text-transform: uppercase;
-                color: var(--gold2);
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                margin-bottom: 16px;
-            }
-            .s-tag::after {
-                content: "";
-                flex: 0 0 40px;
-                height: 1px;
-                background: var(--goldLine);
-            }
-            h2 {
-                font-family: "Bebas Neue", sans-serif;
-                font-size: clamp(36px, 4vw, 56px);
-                letter-spacing: 2px;
-                color: var(--white);
-                line-height: 1;
-            }
-            h2 span {
-                color: var(--gold2);
-            }
-            .s-sub {
-                font-size: 14px;
-                color: var(--text2);
-                line-height: 1.7;
-                max-width: 520px;
-                margin-top: 14px;
-            }
-            .sep {
-                height: 1px;
-                background: linear-gradient(90deg, var(--goldLine), transparent);
-                margin: 0 60px;
-            }
-
-            /* ── ABOUT ── */
-            .about-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 80px;
-                align-items: center;
-            }
-            .about-img {
-                position: relative;
-                aspect-ratio: 4/3;
-                overflow: hidden;
-            }
-            .about-img img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                filter: grayscale(30%);
-            }
-            .about-img::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                border: 1px solid var(--goldLine);
-                pointer-events: none;
-            }
-            .about-accent {
-                position: absolute;
-                bottom: -1px;
-                left: -1px;
-                width: 60px;
-                height: 4px;
-                background: var(--gold2);
-            }
-            .about-text p {
-                font-size: 14px;
-                color: var(--text2);
-                line-height: 1.8;
-                margin-top: 20px;
-                margin-bottom: 28px;
-            }
-            .about-stats {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1px;
-                background: var(--border);
-                margin-top: 32px;
-            }
-            .a-stat {
-                background: var(--bg2);
-                padding: 20px;
-            }
-            .a-stat-val {
-                font-family: "Bebas Neue", sans-serif;
-                font-size: 42px;
-                color: var(--gold2);
-                letter-spacing: 2px;
-                line-height: 1;
-            }
-            .a-stat-lbl {
-                font-size: 12px;
-                color: var(--text2);
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                margin-top: 4px;
-            }
-
-            /* ── VALUES ── */
-            .values-bg {
-                background: var(--bg2);
-            }
-            .values-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 1px;
-                background: var(--border);
-                margin-top: 48px;
-            }
-            .value-card {
-                background: var(--bg2);
-                padding: 36px 28px;
-                position: relative;
-                overflow: hidden;
-                transition: background 0.2s;
-            }
-            .value-card:hover {
-                background: var(--bg3);
-            }
-            .value-card::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 2px;
-                background: var(--gold2);
-                transform: scaleX(0);
-                transform-origin: left;
-                transition: transform 0.3s;
-            }
-            .value-card:hover::before {
-                transform: scaleX(1);
-            }
-            .v-icon {
-                width: 52px;
-                height: 52px;
-                border: 1px solid var(--border);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 24px;
-                margin-bottom: 20px;
-                transition: border-color 0.2s;
-            }
-            .value-card:hover .v-icon {
-                border-color: var(--goldLine);
-            }
-            .v-title {
-                font-size: 15px;
-                font-weight: 700;
-                color: var(--white);
-                margin-bottom: 10px;
-                letter-spacing: 0.03em;
-            }
-            .v-text {
-                font-size: 13px;
-                color: var(--text2);
-                line-height: 1.7;
-            }
-
-            /* ── SERVICES ── */
-            .services-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
-                margin-bottom: 48px;
-            }
-            .services-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-            }
-            .service-card {
-                background: var(--bg2);
-                border: 1px solid var(--border);
-                padding: 32px 24px;
-                cursor: pointer;
-                transition: all 0.2s;
-                position: relative;
-            }
-            .service-card:hover {
-                border-color: var(--goldLine);
-                transform: translateY(-4px);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            }
-            .sc-num {
-                font-family: "Bebas Neue", sans-serif;
-                font-size: 48px;
-                color: var(--border);
-                line-height: 1;
-                margin-bottom: 20px;
-                transition: color 0.2s;
-            }
-            .service-card:hover .sc-num {
-                color: var(--goldDim);
-            }
-            .sc-icon {
-                font-size: 28px;
-                margin-bottom: 16px;
-            }
-            .sc-title {
-                font-size: 15px;
-                font-weight: 700;
-                color: var(--white);
-                margin-bottom: 10px;
-            }
-            .sc-text {
-                font-size: 13px;
-                color: var(--text2);
-                line-height: 1.6;
-                margin-bottom: 20px;
-            }
-            .sc-link {
-                font-size: 12px;
-                font-weight: 700;
-                color: var(--gold2);
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
-
-            /* ── WHY CHOOSE US ── */
-            .why-bg {
-                background: var(--bg2);
-            }
-            .why-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 80px;
-                align-items: center;
-                margin-top: 48px;
-            }
-            .why-img {
-                position: relative;
-            }
-            .why-img img {
-                width: 100%;
-                aspect-ratio: 4/3;
-                object-fit: cover;
-                filter: grayscale(20%);
-            }
-            .why-badge {
-                position: absolute;
-                bottom: 24px;
-                left: -24px;
-                background: var(--gold2);
-                padding: 16px 24px;
-                width: 180px;
-            }
-            .wb-num {
-                font-family: "Bebas Neue", sans-serif;
-                font-size: 42px;
-                color: #000;
-                line-height: 1;
-            }
-            .wb-text {
-                font-size: 11px;
-                font-weight: 700;
-                color: #000;
-                text-transform: uppercase;
-                letter-spacing: 0.06em;
-            }
-            .why-items {
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-            }
-            .why-item {
-                display: flex;
-                gap: 20px;
-                padding: 24px 0;
-                border-bottom: 1px solid var(--border);
-                transition: padding 0.2s;
-            }
-            .why-item:first-child {
-                padding-top: 0;
-            }
-            .why-item:hover {
-                padding-left: 8px;
-            }
-            .wi-icon {
-                width: 48px;
-                height: 48px;
-                flex-shrink: 0;
-                border: 1px solid var(--goldLine);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 20px;
-            }
-            .wi-title {
-                font-size: 14px;
-                font-weight: 700;
-                color: var(--white);
-                margin-bottom: 6px;
-            }
-            .wi-text {
-                font-size: 13px;
-                color: var(--text2);
-                line-height: 1.6;
-            }
-
-            /* ── PROJECTS ── */
-            .projects-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2px;
-                margin-top: 48px;
-            }
-            .project-card {
-                position: relative;
-                aspect-ratio: 4/3;
-                overflow: hidden;
-                cursor: pointer;
-            }
-            .project-card img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.4s;
-                filter: grayscale(40%);
-            }
-            .project-card:hover img {
-                transform: scale(1.06);
-                filter: grayscale(0%);
-            }
-            .project-overlay {
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, transparent 50%);
-                opacity: 0;
-                transition: opacity 0.3s;
-            }
-            .project-card:hover .project-overlay {
-                opacity: 1;
-            }
-            .project-info {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                padding: 24px;
-                transform: translateY(8px);
-                transition: transform 0.3s;
-            }
-            .project-card:hover .project-info {
-                transform: translateY(0);
-            }
-            .pi-tag {
-                font-size: 11px;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
-                color: var(--gold2);
-                margin-bottom: 6px;
-            }
-            .pi-title {
-                font-size: 15px;
-                font-weight: 700;
-                color: #fff;
-            }
-            .pi-meta {
-                font-size: 12px;
-                color: rgba(255, 255, 255, 0.6);
-                margin-top: 4px;
-            }
-
-            /* ── TESTIMONIALS ── */
-            .testi-bg {
-                background: var(--bg2);
-            }
-            .testi-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-                margin-top: 48px;
-            }
-            .testi-card {
-                background: var(--bg);
-                border: 1px solid var(--border);
-                padding: 28px;
-                position: relative;
-                transition: border-color 0.2s;
-            }
-            .testi-card:hover {
-                border-color: var(--goldLine);
-            }
-            .testi-card::before {
-                content: '"';
-                position: absolute;
-                top: 20px;
-                right: 24px;
-                font-family: "Bebas Neue", sans-serif;
-                font-size: 80px;
-                color: var(--border);
-                line-height: 1;
-            }
-            .stars {
-                color: var(--gold2);
-                font-size: 14px;
-                margin-bottom: 14px;
-                letter-spacing: 2px;
-            }
-            .testi-text {
-                font-size: 14px;
-                color: var(--text2);
-                line-height: 1.7;
-                margin-bottom: 20px;
-            }
-            .testi-author {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-            .ta-avatar {
-                width: 40px;
-                height: 40px;
-                background: var(--bg3);
-                border: 1px solid var(--goldLine);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 15px;
-                font-weight: 700;
-                color: var(--gold2);
-                font-family: "Bebas Neue", sans-serif;
-                letter-spacing: 1px;
-            }
-            .ta-name {
-                font-size: 14px;
-                font-weight: 700;
-                color: var(--white);
-            }
-            .ta-role {
-                font-size: 12px;
-                color: var(--text3);
-                margin-top: 2px;
-            }
-
-            /* ── SERVICE AREA ── */
-            .area-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 80px;
-                align-items: start;
-                margin-top: 48px;
-            }
-            .area-list {
-                list-style: none;
-            }
-            .area-list li {
-                display: flex;
-                align-items: center;
-                gap: 14px;
-                padding: 16px 0;
-                border-bottom: 1px solid var(--border);
-                font-size: 14px;
-                color: var(--text2);
-                font-weight: 500;
-                transition: color 0.2s;
-                cursor: default;
-            }
-            .area-list li:hover {
-                color: var(--text);
-            }
-            .area-dot {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: var(--gold2);
-                flex-shrink: 0;
-            }
-            .area-map {
-                background: var(--bg3);
-                border: 1px solid var(--border);
-                aspect-ratio: 4/3;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                overflow: hidden;
-            }
-            .map-placeholder {
-                font-family: "Bebas Neue", sans-serif;
-                font-size: 18px;
-                letter-spacing: 3px;
-                color: var(--text3);
-            }
-            /* SVG map dots */
-            .map-dot {
-                position: absolute;
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: var(--gold2);
-                box-shadow: 0 0 0 4px rgba(245, 200, 0, 0.2);
-            }
-            .map-dot::after {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                background: rgba(245, 200, 0, 0.1);
-                animation: pulse 2s ease infinite;
-            }
-            @keyframes pulse {
-                0%,
-                100% {
-                    transform: translate(-50%, -50%) scale(1);
-                    opacity: 0.6;
-                }
-                50% {
-                    transform: translate(-50%, -50%) scale(1.8);
-                    opacity: 0;
-                }
-            }
-
-            /* ── CONTACT ── */
-            .contact-bg {
-                background: var(--bg2);
-            }
-            .contact-grid {
-                display: grid;
-                grid-template-columns: 1.2fr 1fr;
-                gap: 60px;
-                margin-top: 48px;
-            }
-            .form-group {
-                margin-bottom: 16px;
-            }
-            label {
-                font-size: 12px;
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: var(--text2);
-                display: block;
-                margin-bottom: 8px;
-            }
-            input,
-            select,
-            textarea {
-                width: 100%;
-                background: var(--bg);
-                border: 1px solid var(--border);
-                padding: 13px 16px;
-                color: var(--text);
-                font-size: 14px;
-                font-family: inherit;
-                outline: none;
-                transition: border-color 0.2s;
-                appearance: none;
-            }
-            input:focus,
-            select:focus,
-            textarea:focus {
-                border-color: var(--goldLine);
-            }
-            input::placeholder,
-            textarea::placeholder {
-                color: var(--text3);
-            }
-            textarea {
-                min-height: 100px;
-                resize: vertical;
-            }
-            .form-row {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
-            }
-            .contact-info {
-            }
-            .ci-item {
-                display: flex;
-                gap: 16px;
-                padding: 24px 0;
-                border-bottom: 1px solid var(--border);
-            }
-            .ci-icon {
-                width: 44px;
-                height: 44px;
-                border: 1px solid var(--goldLine);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 18px;
-                flex-shrink: 0;
-            }
-            .ci-label {
-                font-size: 11px;
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
-                color: var(--text3);
-                margin-bottom: 4px;
-                font-weight: 600;
-            }
-            .ci-val {
-                font-size: 15px;
-                font-weight: 600;
-                color: var(--text);
-            }
-
-            /* ── FAQ ── */
-            .faq-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 80px;
-                margin-top: 48px;
-            }
-            .faq-list {
-            }
-            .faq-item {
-                border-bottom: 1px solid var(--border);
-            }
-            .faq-q {
-                width: 100%;
-                background: none;
-                border: none;
-                padding: 20px 0;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                font-size: 14px;
-                font-weight: 600;
-                color: var(--text);
-                cursor: pointer;
-                font-family: inherit;
-                text-align: left;
-                gap: 16px;
-            }
-            .faq-q:hover {
-                color: var(--gold2);
-            }
-            .faq-icon {
-                width: 24px;
-                height: 24px;
-                border: 1px solid var(--border);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 16px;
-                color: var(--gold2);
-                flex-shrink: 0;
-                transition: transform 0.2s;
-            }
-            .faq-a {
-                font-size: 13px;
-                color: var(--text2);
-                line-height: 1.7;
-                max-height: 0;
-                overflow: hidden;
-                transition:
-                    max-height 0.3s,
-                    padding 0.3s;
-            }
-            .faq-item.open .faq-a {
-                max-height: 200px;
-                padding-bottom: 20px;
-            }
-            .faq-item.open .faq-icon {
-                transform: rotate(45deg);
-            }
-            .faq-item.open .faq-q {
-                color: var(--gold2);
-            }
-            .faq-visual {
-                background: var(--bg2);
-                border: 1px solid var(--border);
-                padding: 40px;
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-            }
-            .faq-stat {
-            }
-            .fs-num {
-                font-family: "Bebas Neue", sans-serif;
-                font-size: 64px;
-                color: var(--gold2);
-                letter-spacing: 2px;
-                line-height: 1;
-            }
-            .fs-text {
-                font-size: 13px;
-                color: var(--text2);
-                margin-top: 4px;
-                line-height: 1.6;
-            }
-
-            /* ── FOOTER ── */
-            footer {
-                background: #080808;
-                border-top: 1px solid var(--border);
-                padding: 60px;
-                display: grid;
-                grid-template-columns: 1.5fr 1fr 1fr 1fr;
-                gap: 40px;
-            }
-            .footer-brand p {
-                font-size: 13px;
-                color: var(--text2);
-                line-height: 1.7;
-                margin-top: 14px;
-                max-width: 260px;
-            }
-            .footer-col h4 {
-                font-size: 12px;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
-                color: var(--text);
-                margin-bottom: 20px;
-            }
-            .footer-col a {
-                display: block;
-                font-size: 13px;
-                color: var(--text2);
-                text-decoration: none;
-                margin-bottom: 10px;
-                transition: color 0.2s;
-            }
-            .footer-col a:hover {
-                color: var(--gold2);
-            }
-            .footer-bottom {
-                padding: 20px 60px;
-                border-top: 1px solid var(--border);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                background: #080808;
-            }
-            .footer-bottom p {
-                font-size: 12px;
-                color: var(--text3);
-            }
-            .socials {
-                display: flex;
-                gap: 12px;
-            }
-            .social {
-                width: 34px;
-                height: 34px;
-                border: 1px solid var(--border);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 14px;
-                cursor: pointer;
-                transition: border-color 0.2s;
-                text-decoration: none;
-            }
-            .social:hover {
-                border-color: var(--goldLine);
-            }
-
-            /* ── SCROLL ANIMATION ── */
-            .reveal {
-                opacity: 0;
-                transform: translateY(24px);
-                transition:
-                    opacity 0.6s,
-                    transform 0.6s;
-            }
-            .reveal.visible {
-                opacity: 1;
-                transform: none;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <!-- NAV -->
+        <!-- ════════ NAV ════════ -->
         <nav>
             <a href="#" class="logo">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
@@ -1055,10 +26,19 @@
             <div class="nav-right">
                 <span class="lang">RU</span>
                 <button class="btn-nav">Войти</button>
+                <div class="nav-burger" id="burger"><span></span><span></span><span></span></div>
             </div>
         </nav>
 
-        <!-- HERO -->
+        <!-- Mobile dropdown -->
+        <div class="mob-nav" id="mobNav">
+            <a href="#about" onclick="closeNav()">О нас</a>
+            <a href="#services" onclick="closeNav()">Услуги</a>
+            <a href="#projects" onclick="closeNav()">Объекты</a>
+            <a href="#contact" onclick="closeNav()">Контакты</a>
+        </div>
+
+        <!-- ════════ HERO ════════ -->
         <div class="hero">
             <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
@@ -1089,7 +69,7 @@
 
         <div class="sep"></div>
 
-        <!-- ABOUT -->
+        <!-- ════════ ABOUT ════════ -->
         <section id="about">
             <div class="about-grid reveal">
                 <div class="about-img">
@@ -1129,9 +109,9 @@
 
         <div class="sep"></div>
 
-        <!-- VALUES -->
+        <!-- ════════ VALUES ════════ -->
         <section class="values-bg">
-            <div class="reveal" style="text-align: center; max-width: 560px; margin: 0 auto 0">
+            <div class="reveal" style="text-align: center; max-width: 560px; margin: 0 auto">
                 <div class="s-tag" style="justify-content: center">Наши принципы</div>
                 <h2>Наши <span>ценности</span></h2>
             </div>
@@ -1161,7 +141,7 @@
 
         <div class="sep"></div>
 
-        <!-- SERVICES -->
+        <!-- ════════ SERVICES ════════ -->
         <section id="services">
             <div class="services-header reveal">
                 <div>
@@ -1204,7 +184,7 @@
 
         <div class="sep"></div>
 
-        <!-- WHY CHOOSE US -->
+        <!-- ════════ WHY CHOOSE US ════════ -->
         <section class="why-bg" id="why">
             <div class="why-grid reveal">
                 <div class="why-img">
@@ -1257,7 +237,7 @@
 
         <div class="sep"></div>
 
-        <!-- PROJECTS -->
+        <!-- ════════ PROJECTS ════════ -->
         <section id="projects">
             <div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px">
                 <div>
@@ -1326,9 +306,9 @@
 
         <div class="sep"></div>
 
-        <!-- TESTIMONIALS -->
+        <!-- ════════ TESTIMONIALS ════════ -->
         <section class="testi-bg">
-            <div class="reveal" style="text-align: center; max-width: 480px; margin: 0 auto 0">
+            <div class="reveal" style="text-align: center; max-width: 480px; margin: 0 auto">
                 <div class="s-tag" style="justify-content: center">Отзывы</div>
                 <h2>Что говорят <span>клиенты</span></h2>
             </div>
@@ -1377,7 +357,7 @@
 
         <div class="sep"></div>
 
-        <!-- SERVICE AREA -->
+        <!-- ════════ SERVICE AREA ════════ -->
         <section>
             <div class="reveal">
                 <div class="s-tag">География</div>
@@ -1406,7 +386,7 @@
 
         <div class="sep"></div>
 
-        <!-- CONTACT -->
+        <!-- ════════ CONTACT ════════ -->
         <section class="contact-bg" id="contact">
             <div class="reveal">
                 <div class="s-tag">Связь</div>
@@ -1476,7 +456,7 @@
 
         <div class="sep"></div>
 
-        <!-- FAQ -->
+        <!-- ════════ FAQ ════════ -->
         <section>
             <div class="reveal">
                 <div class="s-tag">Вопросы</div>
@@ -1538,7 +518,7 @@
             </div>
         </section>
 
-        <!-- FOOTER -->
+        <!-- ════════ FOOTER ════════ -->
         <footer>
             <div class="footer-brand">
                 <div class="logo" style="margin-bottom: 14px">
@@ -1580,29 +560,6 @@
             <p>Политика конфиденциальности · Условия использования</p>
         </div>
 
-        <script>
-            // FAQ accordion
-            document.querySelectorAll(".faq-q").forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    const item = btn.parentElement;
-                    const isOpen = item.classList.contains("open");
-                    document.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("open"));
-                    if (!isOpen) item.classList.add("open");
-                });
-            });
-
-            // Scroll reveal
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((e, i) => {
-                        if (e.isIntersecting) {
-                            setTimeout(() => e.target.classList.add("visible"), i * 80);
-                        }
-                    });
-                },
-                { threshold: 0.1 },
-            );
-            document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-        </script>
+        <script src="main.js"></script>
     </body>
 </html>
