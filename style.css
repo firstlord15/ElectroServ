@@ -1,8 +1,3 @@
-/* ════════════════════════════════════════
-   ElectroServ — Главный стиль
-   style.css
-════════════════════════════════════════ */
-
 *,
 *::before,
 *::after {
@@ -623,6 +618,13 @@ h2 span {
 }
 
 /* ════════ PROJECTS ════════ */
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1252,7 +1254,12 @@ footer {
         height: 38px;
         font-size: 17px;
     }
-
+    .projects-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
     .projects-grid {
         grid-template-columns: 1fr 1fr !important;
         gap: 2px;
